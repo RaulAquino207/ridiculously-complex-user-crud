@@ -1,0 +1,13 @@
+name: rcuc-prod
+services:
+  app:
+    container_name: rcuc-prod-app
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      target: production
+    command: npm run start:prod
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "80:3000"

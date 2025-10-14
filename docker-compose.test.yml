@@ -1,0 +1,13 @@
+name: rcuc-test
+services:
+  app:
+    container_name: rcuc-test-app
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      target: testing
+    command: npm run start:prod
+    environment:
+      - NODE_ENV=testing
+    ports:
+      - "3002:3002"

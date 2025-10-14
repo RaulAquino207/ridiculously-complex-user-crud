@@ -1,0 +1,16 @@
+name: rcuc-dev
+services:
+  app:
+    container_name: rcuc-dev-app
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      target: development
+    command: npm run start:dev
+    volumes:
+      - ../src:/usr/src/app/src
+      - /usr/src/app/node_modules
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "3000:3000"
