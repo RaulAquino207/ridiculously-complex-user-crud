@@ -3,7 +3,7 @@ services:
   app:
     container_name: rcuc-prod-app
     build:
-      context: ..
+      context: .
       dockerfile: Dockerfile
       target: production
     command: npm run start:prod
