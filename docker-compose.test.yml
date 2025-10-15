@@ -6,9 +6,15 @@ services:
       context: .
       dockerfile: Dockerfile
       target: testing
-    command: npm run start:prod
     environment:
       - NODE_ENV=testing
-      - PORT=3000
+      - PORT=3002
     ports:
-      - "3000:3000"
+      - "3002:3002"
+    healthcheck:
+      test: ["CMD-SHELL", "node -e \"require('net').connect(process.env.PORT||3000,'127.0.0.1').on('connect',()=>process.exit(0)).on('error',()=>process.exit(1))\" "]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
