@@ -54,3 +54,21 @@ pids
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Terraform (scoped to terra/)
+terra/.terraform/
+terra/terraform.tfstate
+terra/terraform.tfstate.*
+terra/crash.log
+terra/crash.*.log
+terra/*.tfplan
+terra/*.plan
+terra/terraform.tfvars
+terra/*.tfvars
+terra/*.tfvars.json
+terra/*.auto.tfvars
+terra/*.auto.tfvars.json
+terra/override.tf
+terra/override.tf.json
+terra/*_override.tf
+terra/*_override.tf.json
