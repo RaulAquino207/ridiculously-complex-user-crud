@@ -8,11 +8,11 @@ services:
       target: testing
     environment:
       - NODE_ENV=testing
-      - PORT=3002
+      - PORT=3001
     ports:
-      - "3002:3002"
+      - "3001:3001"
     healthcheck:
-      test: ["CMD-SHELL", "node -e \"require('net').connect(process.env.PORT||3000,'127.0.0.1').on('connect',()=>process.exit(0)).on('error',()=>process.exit(1))\" "]
+      test: ["CMD-SHELL", "node -e \"require('net').connect(process.env.PORT||3001,'127.0.0.1').on('connect',()=>process.exit(0)).on('error',()=>process.exit(1))\" "]
       interval: 10s
       timeout: 5s
       retries: 10
