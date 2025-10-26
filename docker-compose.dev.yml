@@ -1,5 +1,25 @@
 name: rcuc-dev
 services:
+  vault:
+    image: hashicorp/vault
+    container_name: vault-new
+    environment:
+      VAULT_ADDR: "http://vault1.poc.thecloudgarage.com:8200"
+      VAULT_API_ADDR: "http://vault1.poc.thecloudgarage.com:8200"
+      VAULT_ADDRESS: "http://vault1.poc.thecloudgarage.com:8200"
+    ports:
+      - "8200:8200"
+      - "8201:8201"
+    restart: always
+    volumes:
+      - ./infra/volumes/vault/logs:/vault/logs/:rw
+      - ./infra/volumes/vault/data:/vault/data/:rw
+      - ./vault/config:/vault/config/:rw
+      - ./infra/volumes/vault/certs:/certs/:rw
+      - ./infra/volumes/vault/file:/vault/file/:rw
+    cap_add:
+      - IPC_LOCK
+    entrypoint: vault server -config /vault/config/config.hcl
   app:
     container_name: rcuc-dev-app
     build:

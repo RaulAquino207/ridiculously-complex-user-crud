@@ -72,3 +72,13 @@ terra/override.tf
 terra/override.tf.json
 terra/*_override.tf
 terra/*_override.tf.json
+
+# Vault runtime data (keep repo clean)
+vault/data/
+vault/logs/
+vault/file/
+vault/data/**/snapshots/
+
+# Standardized runtime volumes (all services)
+infra/volumes/
+ops/volumes/
