@@ -1,7 +1,7 @@
-name: rcuc-prod
+name: rc-user-crud-prod
 services:
   app:
-    container_name: rcuc-prod-app
+    container_name: rc-user-crud-prod-app
     build:
       context: .
       dockerfile: Dockerfile

@@ -1,7 +1,7 @@
-name: rcuc-test
+name: rc-user-crud-test
 services:
   app:
-    container_name: rcuc-test-app
+    container_name: rc-user-crud-test-app
     build:
       context: .
       dockerfile: Dockerfile

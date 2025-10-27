@@ -1,4 +1,4 @@
-name: rcuc-dev
+name: rc-user-crud-dev
 services:
   vault:
     image: hashicorp/vault
@@ -21,7 +21,7 @@ services:
       - IPC_LOCK
     entrypoint: vault server -config /vault/config/config.hcl
   app:
-    container_name: rcuc-dev-app
+    container_name: rc-user-crud-dev-app
     build:
       context: .
       dockerfile: Dockerfile
