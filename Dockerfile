@@ -63,8 +63,8 @@ ENV NODE_ENV=testing
 COPY --from=deps --chown=node:node /usr/src/app/node_modules ./node_modules
 COPY --from=builder --chown=node:node /usr/src/app/dist ./dist
 COPY --chown=node:node package.json ./
-EXPOSE 3002
-HEALTHCHECK --interval=10s --timeout=3s --retries=5 CMD node -e "require('net').connect(process.env.PORT||3000,'127.0.0.1').on('connect',()=>process.exit(0)).on('error',()=>process.exit(1))"
+EXPOSE 3001
+HEALTHCHECK --interval=10s --timeout=3s --retries=5 CMD node -e "require('net').connect(process.env.PORT||3001,'127.0.0.1').on('connect',()=>process.exit(0)).on('error',()=>process.exit(1))"
 CMD ["node", "dist/main"]
 
 ###############################
