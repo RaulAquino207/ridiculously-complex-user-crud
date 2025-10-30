@@ -18,7 +18,7 @@
 # AWS
 # ========================
 region        = "sa-east-1"      # change if needed
-aws_profile   = "raulaquino297"  # your AWS CLI profile (e.g., the one used in aws ec2 describe-instances)
+aws_profile   = "profile"  # your AWS CLI profile (e.g., the one used in aws ec2 describe-instances)
 name          = "rc-user-crud"    # base/prefix name for resources
 instance_type = "t2.micro"        # EC2 instance type
 
@@ -30,18 +30,19 @@ ssh_public_key_path = "/Users/<your-user>/.ssh/id_ed25519.pub"
 # Container image
 # ========================
 # Option A) AWS ECR (recommended if hosting on AWS)
-use_ecr   = true
-# Replace with your ECR registry: <ACCOUNT_ID>.dkr.ecr.<region>.amazonaws.com
-registry   = "123456789012.dkr.ecr.sa-east-1.amazonaws.com"
-# Repository/image name in ECR (without the registry)
-image_name = "rc-user-crud"
+# use_ecr   = true
+# # Replace with your ECR registry: <ACCOUNT_ID>.dkr.ecr.<region>.amazonaws.com
+# registry   = "123456789012.dkr.ecr.sa-east-1.amazonaws.com"
+# # Repository/image name in ECR (without the registry)
+# image_name = "rc-user-crud"
+#
+# # When use_ecr = true, you don't need username/password.
+# # The EC2 instance gets a role with ECR pull permissions.
 
-# When use_ecr = true, you don't need username/password.
-# The EC2 instance gets a role with ECR pull permissions.
-
-# Option B) Docker Hub or other registry (uncomment and adjust if preferred)
-# use_ecr           = false
-# registry          = "docker.io"
-# image_name        = "your-user/rc-user-crud"
+# Option B) Docker Hub or other registry (default below matches current project setup)
+use_ecr           = false
+registry          = "docker.io"
+image_name        = "raulaquino207/ridiculously-complex-user-crud"
+# If pulling from a private registry, set credentials; otherwise leave empty (public images)
 # registry_username = "your-user"
 # registry_password = "your-access-token-or-password"
