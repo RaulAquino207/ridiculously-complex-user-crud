@@ -82,3 +82,6 @@ vault/data/**/snapshots/
 # Standardized runtime volumes (all services)
 infra/volumes/
 ops/volumes/
+
+# Local development env file (not committed)
+.env.dev
