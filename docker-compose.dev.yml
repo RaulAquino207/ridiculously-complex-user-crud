@@ -53,6 +53,7 @@ services:
       - DEBUG=0
       - AWS_DEFAULT_REGION=${AWS_REGION:-sa-east-1}
       - DOCKER_HOST=unix:///var/run/docker.sock
+      - DYNAMODB_SHARE_DB=1
     ports:
       - "4566:4566"
     volumes:
