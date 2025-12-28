@@ -22,3 +22,4 @@ const docClient = DynamoDBDocumentClient.from(baseClient, {
 });
 
 export const dynamoDBClient = (): DynamoDBDocumentClient => docClient;
+export const dynamoDBBaseClient = (): DynamoDBClient => baseClient;
