@@ -1,9 +1,10 @@
 import { User } from "src/domain/user/entity/user";
+import { CreateUserDto } from "src/modules/user/dto/create-user.dto";
 
 export interface UserGateway {
-    create(): Promise<User>;
+    create(createUserDto: CreateUserDto): Promise<User>;
     // findAll(): Promise<Array<User>>;
-    // findOne(id: string): Promise<User>;
+    findOne(id: string): Promise<User>;
     // update(): Promise<User>;
     // remove(): Promise<User>;
 }
